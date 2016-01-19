@@ -61,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
         listView.setAdapter(adapter);
     }
 
+    //Creates a background threading that downloads the weather forecast
     public class ForecastData extends AsyncTask<String, Void, ArrayList<WeatherData>> {
         protected ArrayList<WeatherData> doInBackground(String... params){
             String zip = params[0];
@@ -87,6 +88,7 @@ public class MainActivity extends AppCompatActivity {
                     adapter.add(a.toString());
                 }
 
+                //If the user is making their first query, then it will show the results section of the app
                 if (stub == null) {
                     stub = (ViewStub) findViewById(R.id.results);
                     stub.inflate();
@@ -176,13 +178,14 @@ public class MainActivity extends AppCompatActivity {
         private ArrayList<WeatherData> parseJSON(String results) {
             ArrayList<WeatherData> forecast = new ArrayList<WeatherData>();
             try {
+                //Starts parsing the JSON file
                 JSONObject forecastObj = new JSONObject(results);
 
+                //Finds the name of the input location
                 JSONObject cityJSON = forecastObj.getJSONObject("city");
-                Log.v(TAG, cityJSON.toString());
-
+                //Log.v(TAG, cityJSON.toString());
                 location = cityJSON.getString("name");
-                Log.v(TAG, location);
+                //Log.v(TAG, location);
 
                 //Pulls the forecast data
                 JSONArray forecastArray = forecastObj.getJSONArray("list");
