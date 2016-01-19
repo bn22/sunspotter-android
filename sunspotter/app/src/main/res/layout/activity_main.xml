@@ -9,53 +9,41 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="edu.uw.bn22.sunspotter.MainActivity">
 
-    <ImageView
-        android:id="@+id/picture"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_gravity="center"
-        android:src="@drawable/android_maneki"
-        android:layout_marginTop="120dp"
+    <EditText
+        android:id="@+id/txtSearch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:hint="City..."
+        android:layout_weight="0.68"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_alignParentLeft="true"
+        android:width="150dp" />
+
+    <Button
+        android:id="@+id/btnSearch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Find Sun!"
+        android:drawableLeft="@android:drawable/ic_menu_search"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp" />
+
+    <ViewStub
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/results"
+        android:inflatedId="@+id/weather_results"
+        android:layout="@layout/middle_section"
+        />
+
+    <include layout="@layout/list_view"
         android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginRight="20dp" />
-
-    <TextView
-        android:id="@+id/txtHeader"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="120dp"
-        android:textSize="24sp"
-        android:text="There will be sun!"
-        android:layout_alignRight="@+id/txtText"
-        android:layout_centerHorizontal="true"
-        android:layout_toRightOf="@+id/picture"
-        android:layout_toEndOf="@+id/picture"
-        android:layout_marginLeft="20dp" />
-
-    <TextView
-        android:id="@+id/txtText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:text="It will be sunny on Sunday at 3:00pm"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/txtHeader"
-        android:layout_toRightOf="@+id/picture"
-        android:layout_toEndOf="@+id/picture"
-        android:layout_marginLeft="20dp" />
-
-    <include layout="@layout/searchbar"
-        android:layout_below="@+id/picture"
-        android:layout_toRightOf="@+id/picture"
-        android:layout_toEndOf="@+id/picture"
-        android:layout_marginTop="76dp"
-        android:id="@+id/include" />
-
-    <include layout="@layout/listview"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignBottom="@+id/include" />
-
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+    
 </RelativeLayout>
